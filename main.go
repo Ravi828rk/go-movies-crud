@@ -53,17 +53,6 @@ func getMovie(w http.ResponseWriter, r *http.Request) {
 
 func createMovie(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-	// parms := mux.Vars(r)
-	// movie := Movie{
-	// 	ID:    strconv.Itoa(len(movies)),
-	// 	Isbn:  parms["isbn"],
-	// 	Title: parms["title"],
-	// 	Director: &Director{
-	// 		Firstname: parms["firstname"],
-	// 		Lastname:  parms["lastname"],
-	// 	},
-	// }
-	// movies = append(movies, movie)
 	var movie Movie
 	_ = json.NewDecoder(r.Body).Decode(&movie)
 	movie.ID = strconv.Itoa(len(movies))
