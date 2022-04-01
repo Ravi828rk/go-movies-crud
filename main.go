@@ -55,7 +55,7 @@ func createMovie(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	var movie Movie
 	_ = json.NewDecoder(r.Body).Decode(&movie)
-	movie.ID = strconv.Itoa(len(movies))
+	movie.ID = strconv.Itoa(len(movies) + 1)
 	movies = append(movies, movie)
 	json.NewEncoder(w).Encode(movie)
 
